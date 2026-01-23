@@ -1,0 +1,59 @@
+@use "../styles/variables" as *;
+
+.stat-card {
+  background: linear-gradient(145deg, $dark-2, $dark);
+  border: 1px solid $dark-3;
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 220px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  .clickable {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px) scale(1.01);
+      animation: kiPulse 1.5s infinite ease-in-out;
+      box-shadow: 0 0 18px rgba($primary, 0.5);
+    }
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.15);
+  }
+
+  .stat-icon {
+    background: rgba($primary, 0.15);
+    color: $primary;
+    padding: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .stat-title {
+    color: #aaa;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .stat-value {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+}
+
+.stat-card.clickable {
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba($primary, 0.35);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+}
