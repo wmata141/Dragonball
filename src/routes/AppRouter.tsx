@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import CharacterList from "../pages/Characters/CharacterList";
 import CharacterDetail from "../pages/Characters/CharacterDetail";
+import CharacterForm from "../pages/Characters/CharacterForm";
 
 const AppRouter = () => {
   return (
@@ -25,6 +26,25 @@ const AppRouter = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/characters" element={<CharacterList />} />
         <Route path="/characters/:id" element={<CharacterDetail />} />
+
+        {/* Solo admin */}
+        <Route
+          path="/characters/form"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <CharacterForm />
+            </ProtectedRoute>
+          }
+        />
+        {/* Solo admin */}
+        <Route
+          path="/characters/form/:id"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <CharacterForm />
+            </ProtectedRoute>
+          }
+        />
         
       </Route>
 
