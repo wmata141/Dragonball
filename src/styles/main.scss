@@ -1,0 +1,74 @@
+@use "./variables" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $dark;
+  color: $light;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, $primary, $accent);
+  color: $dark;
+  border: none;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.btn-secondary {
+  background: $secondary;
+  color: $light;
+}
+
+.btn-danger {
+  background: $error;
+  color: $light;
+}
+
+.table {
+  background: $dark-2;
+  border: 1px solid $dark-3;
+
+  th {
+    color: $accent;
+    border-bottom: 1px solid $dark-3;
+  }
+
+  td {
+    color: $light;
+  }
+
+  tr:hover {
+    background: rgba($secondary, 0.08);
+  }
+}
+
+.error {
+  color: $error;
+}
+
+.empty {
+  color: $gray;
+}
+
+.loading {
+  color: $accent;
+}
+
+.glow {
+  box-shadow: 0 0 12px rgba($accent, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
