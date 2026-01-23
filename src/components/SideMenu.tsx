@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { Home, User, Globe, Plus, LogOut } from "lucide-react";
+import { Home, User, Globe, LogOut } from "lucide-react";
 import { useAuth } from "../auth/AuthContext";
 import "./SideMenu.scss";
 
 export const SideMenu = () => {
-    const { user, logout } = useAuth();
+    const { logout } = useAuth();
 
     return (
         <aside className="side-menu">
@@ -27,13 +27,6 @@ export const SideMenu = () => {
                     <Globe size={20} />
                     <span>Planetas</span>
                 </NavLink>
-
-                {user?.role === "admin" && (
-                    <NavLink to="/characters/create">
-                        <Plus size={20} />
-                        <span>Crear Personaje</span>
-                    </NavLink>
-                )}
             </nav>
             {/* Botón de cierre de sesión */}
             <button className="side-menu-logout" onClick={logout}>

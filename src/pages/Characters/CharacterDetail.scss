@@ -1,0 +1,85 @@
+@use "../../styles/variables" as *;
+
+.character-detail {
+  padding: 2rem;
+
+  .back {
+    margin-bottom: 1rem;
+  }
+
+  .header {
+    display: flex;
+    gap: 2rem;
+
+    img {
+      width: 220px;
+      border-radius: 10px;
+    }
+  }
+
+  .info-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    background: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .planet {
+    margin-top: 2rem;
+
+    img {
+      width: 150px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .transformations {
+    margin-top: 2rem;
+
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .transformation-card {
+      background: #1f1f1f;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  .detail-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    .skeleton {
+      background: #333;
+      border-radius: 6px;
+      animation: shimmer 1.2s infinite;
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+        animation: shimmer 1.2s infinite;
+      }
+    }
+  }
+}
