@@ -1,0 +1,146 @@
+@use "../../styles/variables" as *;
+
+.planets {
+  padding: 2rem;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    background: $dark-2;
+    border: 1px solid $dark-3;
+
+    td.actions-cell {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th,
+    td {
+      padding: 0.8rem;
+      text-align: left;
+    }
+
+    th {
+      color: $light;
+      border-bottom: 1px solid $dark-3;
+    }
+
+    tr:nth-child(even) {
+      background: #222;
+
+      &:hover {
+        background: rgba($secondary, 0.08);
+      }
+    }
+
+    img {
+      width: 50px;
+      border-radius: 6px;
+      height: 95px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: initial;
+    align-items: initial;
+    gap: 0.4rem;
+    width: 80%;
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: #222;
+      color: $light;
+      transition: all 0.2s ease;
+
+      svg {
+        stroke-width: 2;
+      }
+
+      &:hover {
+        transform: translateY(-1px);
+      }
+
+      &.view {
+        background: rgba($primary, 0.2);
+        color: $primary;
+
+        &:hover {
+          background: $primary;
+          color: $dark;
+        }
+      }
+
+      &.edit {
+        background: rgba($accent, 0.2);
+        color: $accent;
+
+        &:hover {
+          background: $accent;
+          color: $dark;
+        }
+      }
+
+      &.delete {
+        background: rgba(#e74c3c, 0.2);
+        color: #e74c3c;
+
+        &:hover {
+          background: #e74c3c;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    button {
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, $primary, $accent);
+      color: $dark;
+    }
+  }
+
+  .filters {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    input,
+    select {
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      background: #222;
+      color: white;
+      min-width: 150px;
+    }
+  }
+
+  .empty,
+  .error {
+    text-align: center;
+    color: #ff6b6b;
+    margin: 1rem 0;
+    font-weight: bold;
+  }
+}

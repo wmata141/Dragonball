@@ -18,8 +18,6 @@ const CharacterList = () => {
     setName,
     race,
     setRace,
-    // sort,
-    // setSort,
     fetchCharacters
   } = useCharacters();
 

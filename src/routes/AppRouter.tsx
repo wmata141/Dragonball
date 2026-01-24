@@ -8,6 +8,9 @@ import CharacterList from "../pages/Characters/CharacterList";
 import CharacterDetail from "../pages/Characters/CharacterDetail";
 import CharacterForm from "../pages/Characters/CharacterForm";
 
+import PlanetList from "../pages/Planets/PlanetList";
+import PlanetDetail from "../pages/Planets/PlanetDetail";
+
 const AppRouter = () => {
   return (
     <Routes>
@@ -26,6 +29,8 @@ const AppRouter = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/characters" element={<CharacterList />} />
         <Route path="/characters/:id" element={<CharacterDetail />} />
+        <Route path="/planets" element={<PlanetList />} />
+        <Route path="/planets/:id" element={<PlanetDetail />} />
 
         {/* Solo admin */}
         <Route
@@ -45,7 +50,7 @@ const AppRouter = () => {
             </ProtectedRoute>
           }
         />
-        
+
       </Route>
 
 
