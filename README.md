@@ -1,73 +1,140 @@
-# React + TypeScript + Vite
+# 🐉 Dragon Ball Dashboard – Guía de Inicio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio contiene una aplicación **Frontend desarrollada en React + Vite** que consume la **Dragon Ball API**.  
+La aplicación incluye autenticación, roles de usuario y un dashboard con listado de personajes.
 
-Currently, two official plugins are available:
+Este documento explica **paso a paso** cómo descargar el proyecto, configurarlo y ejecutarlo correctamente.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📌 Requisitos previos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Antes de comenzar, debes tener instalado en tu computadora:
 
-## Expanding the ESLint configuration
+### 1️⃣ Node.js (obligatorio)
+- Descarga: https://nodejs.org
+- Instala la versión **LTS**
+- Verifica la instalación:
+```bash
+node -v
+npm -v
+2️⃣ Git (obligatorio)
+Descarga: https://git-scm.com
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Verifica:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+bash
+Copiar código
+git --version
+📥 Clonar el repositorio
+Abre una terminal y ejecuta:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+bash
+Copiar código
+git clone https://github.com/USUARIO/dragonball-dashboard.git
+Luego entra al proyecto:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+bash
+Copiar código
+cd dragonball-dashboard
+📦 Instalación de dependencias
+Ejecuta el siguiente comando una sola vez:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+bash
+Copiar código
+npm install
+Este comando descargará todas las librerías necesarias para que el proyecto funcione.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+⚙️ Configuración del archivo .env
+En la raíz del proyecto encontrarás (o deberás crear) un archivo llamado:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+txt
+Copiar código
+.env
+Agrega el siguiente contenido:
+
+.env
+Copiar código
+VITE_API_URL=https://dragonball-api.com/api
+VITE_ADMIN_EMAIL=admin@test.com
+VITE_ADMIN_PASSWORD=Admin123
+VITE_USER_EMAIL=user@test.com
+VITE_USER_PASSWORD=User123
+
+⚠️ IMPORTANTE
+El prefijo VITE_ es obligatorio para que las variables funcionen en Vite.
+
+🔐 Roles de usuario
+La aplicación maneja dos roles:
+
+👤 User
+Puede:
+
+Ver personajes
+
+Filtrar y buscar
+
+No puede:
+
+Crear
+
+Editar
+
+Eliminar
+
+🛡️ Admin
+Puede:
+
+Ver personajes
+
+Crear personajes
+
+Editar personajes
+
+Eliminar personajes
+
+El rol se maneja desde el sistema de autenticación del proyecto.
+
+▶️ Ejecutar el proyecto
+Una vez instaladas las dependencias y configurado el .env, ejecuta:
+
+bash
+Copiar código
+npm run dev
+Verás un mensaje similar a este:
+
+txt
+Copiar código
+Local: http://localhost:5173
+Abre esa URL en tu navegador.
+
+🧪 Scripts disponibles
+Comando	Descripción
+npm run dev	Inicia el proyecto en desarrollo
+npm run build	Genera el build de producción
+npm run preview	Previsualiza el build
+
+❗ Problemas comunes
+❌ No inicia el proyecto
+Ejecuta nuevamente:
+
+bash
+Copiar código
+npm install
+npm run dev
+❌ Error con la API
+Verifica el archivo .env
+
+Asegúrate de que la URL de la API sea correcta
+
+🌐 API utilizada
+Dragon Ball API
+📖 Documentación oficial:
+https://web.dragonball-api.com/documentation
+
+📝 Notas finales
+Este proyecto es una prueba técnica frontend
+
+El código está organizado para facilitar la lectura
+
+No se requiere configuración de backend
